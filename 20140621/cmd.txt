@@ -1,0 +1,396 @@
+    1  tar xzf VMwareTools-9.6.2-1688356.tar.gz
+    2  cd vmware-tools-distrib
+    3  ./vmware-install.pl
+    4  reboot
+    5  delete vmware-tools-distrib
+    6  rm vmware-tools-distrib
+    7  rm -r /home/vmware-tools-distrib
+    8  rm -r vmware-tools-distrib
+    9  vi 1.c
+   10  gcc 1.c
+   11  vi i.c
+   12  vi 1.c
+   13  gcc 1.c
+   14  ./a.out
+   15  exiy
+   16  exit
+   17  yum
+   18  exit
+   19  help
+   20  ping www.baidu.com
+   21  ping 192.168.1.1
+   22  yum -y install vim-enhanced
+   23  yum
+   24  cd  /etc/yum.repos.d/
+   25  vi   CentOS-Media.repo
+   26  # yum --disablerepo=\* --enablerepo=c6-media install tree
+   27  yum -y install vim-enhanced
+   28  vim
+   29  is-al
+   30  ls-al
+   31  ls
+   32  la-all
+   33  ls-all
+   34  list
+   35  ls
+   36  cd/tmp
+   37  mkdir testing
+   38  chmod 744 testing
+   39  unity
+   40  clear
+   41  vim
+   42  rmdir testing
+   43  rm -r vmware-tools-distrib
+   44  clear
+   45  shutdown -h now
+   46  vim /etc/man.config
+   47  cd /etc
+   48  vim inittab
+   49  reboot
+   50  ls
+   51  ./a.out
+   52  clear
+   53  ls
+   54  clear
+   55  ls
+   56  su soul
+   57  vim inittab
+   58  cd etc
+   59  cd /etc
+   60  vim inittab
+   61  reboot
+   62  startx
+   63  date -s "10:11:00 2014-6-17"
+   64  date
+   65  data -a
+   66  date -a
+   67  date -h
+   68  date --help
+   69  ls
+   70  ls-l
+   71  clear
+   72  cd /
+   73  ls
+   74  cd home
+   75  ls
+   76  ls -l
+   77  cd soul
+   78  ls
+   79  ls -l
+   80  start x
+   81  cd -
+   82  startx
+   83  su soul
+   84  cd /etc
+   85  vim inittab
+   86  reboot
+   87  cd /etc
+   88  vim inittab
+   89  quit
+   90  exit
+   91  cd /etc
+   92  vim inittab
+   93  clear
+   94  reboot
+   95  cd /etc
+   96  vim inittab
+   97  soul
+   98  su soul
+   99  yum install gdb
+  100  gdb
+  101  yum install gdb
+  102  pwd
+  103  su soul
+  104  ls -l
+  105  chmod 744 b.txt
+  106  ls -l
+  107  chmod +x b.txt
+  108  ls -l
+  109  clear
+  110  ls -l
+  111  cd copy
+  112  umask
+  113  umask 000
+  114  umask
+  115  cd ..
+  116  ls -l
+  117  soul
+  118  su soul
+  119  cp -f /home/soul/vimrc /etc
+  120  su soul
+  121  cd..
+  122  soul
+  123  su soul
+  124  whoami
+  125  who -r
+  126  who
+  127  su soul
+  128  clock -s
+  129  date
+  130  clock -w
+  131  date
+  132  su soul
+  133  yum install gdb
+  134  yum install g++
+  135  yum install emacs
+  136  cd /etc/yum.repos.d/
+  137  mv C        libc.so.6 => /lib/libc.so.6 (0x001f8000)
+  138          libc.so.6 => /lib/libc.so.6 (0x001f8000)
+  139  [root@localhost bin]# cd /etc/yum.repos.d/
+  140  clear
+  141  mv CentOS-Base.repo CentOS-Base.repo.bak
+  142  vim CentOS-Base.repo
+  143  ls
+  144  ls -l
+  145  pwd
+  146  cd /
+  147  ls
+  148  cd /home/soul
+  149  ls
+  150  ls -l
+  151  cat >> 1.txt
+  152  cat >>2.txt <<1.txt
+  153  cat >>2.txt <1.txt
+  154  cat 2.txt
+  155  ls -l 2.txt
+  156  ls
+  157  rm *.txt
+  158  ls
+  159  cat >> ./MyProject/CentOS-Base.repo < CentOS-Base.repo 
+  160  cd MyProject
+  161  ls
+  162  ls -l
+  163  vi CentOS-Base.repo 
+  164  cd -
+  165  ls
+  166  rm *.repo
+  167  ls
+  168  cd /
+  169  cd -
+  170  cd /etc
+  171  ls
+  172  cd yum.repos.d
+  173  ls
+  174  ls -l
+  175  cd /home/soul/MyProject
+  176  ls
+  177  cp CentOS-Base.repo /etc/yum.repos.d
+  178  cd /etc/yum.repos.d
+  179  ls
+  180  ls -l
+  181  cd /\
+  182  yum upgrade
+  183  yum install gdb
+  184  cd -
+  185  ls
+  186  rm *.repo
+  187  ls
+  188  cd /bin
+  189  ls
+  190  /bin/bash --version
+  191  clear
+  192  yum install gdb
+  193  yum makecache
+  194  cd /
+  195  ls
+  196  cd etc
+  197  ls
+  198  cd yum.repos.d
+  199  ls
+  200  vim CentOS-Base.repo
+  201  wget
+  202  wget http://mirrors.163.com/.help/CentOS6-base-163.repo
+  203  cd /home/soul/
+  204  ls
+  205  cd MyProject/
+  206  ls
+  207  cat >>../ CentOS-Base.repo < CentOS-Base.repo 
+  208  cat >>../CentOS-Base.repo < CentOS-Base.repo 
+  209  cd -
+  210  ls
+  211  ls -l
+  212  vim CentOS-Base.repo 
+  213  cd /etc/yum.repos.d
+  214  ls
+  215  rm CentOS-Base.repo
+  216  cp /home/soul/CentOS-Base.repo ./
+  217  ls
+  218  yum makecache
+  219  yum install gdb
+  220  cp lib*.so /lib
+  221  ls
+  222  gcc -o main more_main.c -L. -lmy_hello
+  223  ls
+  224  ./main
+  225  cd /
+  226  ls
+  227  cd lib
+  228  find /lib my_hello
+  229  cealr
+  230  clear
+  231  ls
+  232  rm libmy_hello.so
+  233  ls
+  234  cd /home/soul/MyProject/20140618/gcc_more
+  235  ls
+  236  cd ..
+  237  ls
+  238  cd sort
+  239  ls
+  240  cd src
+  241  ls
+  242  vim show_sort.c
+  243  clear
+  244  ls
+  245  vim sort_main.c
+  246  ls
+  247  cd -
+  248  ls
+  249  cd include
+  250  ls
+  251  vim sort.h 
+  252  cd -
+  253  ls
+  254  cd src
+  255  ls
+  256  gcc -o main *.c -I ../include
+  257  vim show_sort.c 
+  258  gcc -o main *.c -I ../include
+  259  ls
+  260  ./main
+  261  vim sort_main.c
+  262  ls
+  263  rm main
+  264  ks
+  265  ls
+  266  cd ..
+  267  ls
+  268  rm ./include/*.a
+  269  su soul
+  270  rm CentOS-Base.repo
+  271  ls
+  272  cat >> ./CentOS-Base.repo < /home/soul/CentOS-Base.repo 
+  273  ls
+  274  vim CentOS-Base.repo
+  275  yum makecache
+  276  yum insatll gdb
+  277  yun install gdb
+  278  yum install gdb
+  279  rm CentOS-Base.repo
+  280  ls
+  281  cat >> CentOS-Base.repo < /home/soul/CentOS-Base.repo 
+  282  ls
+  283  yum makecache
+  284  cd /home/soul/MyProject/
+  285  su soul
+  286  cp libmy_sort.so /lib
+  287  su soul
+  288  cd /etc/yum.repos.d
+  289  ls
+  290  vim CentOS-Base.repo
+  291  vim CentOS-Base.repo.bak
+  292  vim CentOS-Base.repo
+  293  vim CentOS-Base.repo.bak
+  294  mv CentOS-Media.repo CentOS-Media.repo.bak
+  295  ls
+  296  yum clean all
+  297  yum install gdb
+  298  gdn
+  299  gdb
+  300  yum install gcc-c++
+  301  yum update
+  302  claer
+  303  clear
+  304  yum update
+  305  yum
+  306  clear
+  307  quit
+  308  exit
+  309  yum -y install sl
+  310  sl
+  311  yum install cmatrix
+  312  cd
+  313  ls
+  314  ./a.out 
+  315  cd
+  316  pwd
+  317  ls
+  318  vim install.log
+  319  rm *.c
+  320  rm a.out
+  321  ls
+  322  su soul
+  323  exit
+  324  yum install sl
+  325  sl
+  326  clear
+  327  su soul
+  328  yum install git
+  329  yum install gitk
+  330  git -u
+  331  git -v
+  332  git -version
+  333  git --version
+  334  git
+  335  clear
+  336  su soul
+  337  exit
+  338  ./my_ls /
+  339  ./my_ls ./
+  340  ./my_ls ../
+  341  clear
+  342  su soul
+  343  exit
+  344  yum install git
+  345  clear
+  346  ls
+  347  vim my_ls.c
+  348  ls -l
+  349  vim my_ls.c
+  350  su soul
+  351  exit
+  352  yum install zsh
+  353  zsh
+  354  ls
+  355  ls -l
+  356  chmod o+x xx.txt
+  357  ls -l
+  358   vim xx.txt 
+  359  cat xx.txt 
+  360  cp xx.txt  yy.txt
+  361  ls -l
+  362  cat xx.txt yy.txt >zz.txt
+  363  ls -l'
+  364  clear
+  365  ls -l
+  366  cat zz.txt 
+  367  head -5 zz.txt 
+  368  tail -2 zz.txt 
+  369  df
+  370  df -h
+  371  ls
+  372  df -h xx.txt 
+  373  du -h xx.txt 
+  374  clear
+  375  ls
+  376  tar cvf shell.tar *
+  377  ls
+  378  cat shell.tar 
+  379  clear
+  380  ls
+  381  tar czvf shell.tar.gz *
+  382  ls
+  383  ls -l
+  384  rm *.t*
+  385  ls
+  386  rm -f *.txt
+  387  ls
+  388  tar xvf shell.tar
+  389  ls
+  390  clear
+  391  ls -l
+  392  rm -f *.txt
+  393  tar zxvf shell.tar.gz
+  394  ls 
+  395  history
+  396  history > cmd.txt
