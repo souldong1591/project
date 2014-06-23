@@ -1,0 +1,22 @@
+#!/bin/sh
+
+cd ./
+
+tarFile="shell.tar.gz"
+
+tar czvf $tarFlie *.sh
+
+cd ../
+
+mkdir backup
+code=$?
+if [ $code -eq 0 ]
+then
+cd -
+cp $tarFile ../backup
+else
+cd -
+rm -rf ../backup/*
+cd -
+cp $tarFile ../backup/1.tar.gz
+fi
