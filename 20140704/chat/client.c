@@ -38,11 +38,12 @@ int main(int argc, char *argv[])
 	server_addr.sin_addr.s_addr = inet_addr(argv[1]);
 	while(1)
 	{
+		bzero(&client_addr, sizeof(client_addr));
 		bzero(buf, 1024);
 		fgets(buf, 1024, stdin);
 		sendto(fd_server, buf, strlen(buf), 0, (struct sockaddr*)&server_addr, sizeof(server_addr));
-		recvfrom(fd_server, buf, 1024, 0, (struct sockaddr*)&server_addr, &addrlen);
-		printf("ip:%s port:%d msg:%s\n", inet_ntoa(server_addr.sin_addr), ntohs(server_addr.sin_port), buf);
+		recvfrom(fd_server, buf, 1024, 0, (struct sockaddr*)&client_addr, &addrlen);
+		printf("ip:%s port:%d msg:%s\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port), buf);
 
 	}
 	return 0;
