@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 	int chld_cnt = atoi(argv[3]), max_fd, i;
 	pCHLD chlds = (pCHLD)calloc(chld_cnt, sizeof(CHLD));
 	max_fd = make_child(chlds, chld_cnt);
-
+printf("max %d\n",max_fd);
 	int fd_server;
 	SA server_addr;
 	bzero(&server_addr, sizeof(SA));
@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
 	fd_set read_set, ready_set;
 	FD_ZERO(&read_set);
 	FD_SET(fd_server, &read_set);
-	max_fd > fd_server ? max_fd : fd_server;
+	max_fd = max_fd > fd_server ? max_fd : fd_server;
 	for(i = 0; i < chld_cnt; i++)
 	{
 		FD_SET(chlds[i].s_read, &read_set);
@@ -48,7 +48,8 @@ int main(int argc, char* argv[])
 		tm.tv_usec = 1000;
 		tm.tv_sec = 0;
 		ready_set = read_set;
-		select(max_fd + 1, &ready_set, NULL, NULL, &tm);
+		select(max_fd + 1, &ready_set, NULL, NULL, NULL);
+		printf("select \n");
 		if(FD_ISSET(fd_server, &ready_set))
 		{
 			char buf[1024] = "";
@@ -72,6 +73,7 @@ int main(int argc, char* argv[])
 				chlds[i].s_flag = S_BUSY;
 				chlds[i].s_cnt ++;
 				FILE* fp = fdopen(chlds[i].s_write, "w");
+				printf("h\n");
 				fprintf(fp, "%d %d %s", from_addr.sin_port, from_addr.sin_addr.s_addr, buf);
 				fflush(fp);
 			}
@@ -98,15 +100,15 @@ int make_child(pCHLD arr, int cnt )
 	{
 		pid_t pid;
 		int fds1[2], fds2[2];
-		pipe(fds1);     //0 pw   1 cr
-		pipe(fds2);     //0 cw   1 pr
+		pipe(fds1);     //0 pr   1 cw
+		pipe(fds2);     //0 cr   1 pw
 		pid = fork();
 		if(pid == 0)
 		{
 			close(fds1[0]);
 			close(fds2[1]);
 			dup2(fds2[0], 0);
-			dup2(fds2[1], 1);
+			dup2(fds1[1], 1);
 			child_main();
 			exit;
 		}
@@ -141,7 +143,7 @@ void child_main()
 		client_addr.sin_family = AF_INET;
 		scanf("%d %d %s", &(client_addr.sin_port), &(client_addr.sin_addr.s_addr), buf);
 		fd_socket = socket(AF_INET, SOCK_DGRAM, 0);
-		sendto(fd_socket, buf, sizeof(buf), 0, (struct sockaddr*)&client_addr, sizeof(SA));
+		sendto(fd_socket, buf, strlen(buf), 0, (struct sockaddr*)&client_addr, sizeof(SA));
 		printf("1");
 		fflush(stdout);
 

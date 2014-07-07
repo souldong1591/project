@@ -27,10 +27,12 @@ int main(int argc, char *argv[])
 		SA from_addr;
 		bzero(&from_addr, sizeof(SA));
 		int addrlen = sizeof(SA);
-		
-		sendto(fd_client, buf, strlen(buf), 0, (struct sockaddr*)&server_addr, sizeof(SA));
+		printf("send buf : %s \n",buf);		
+		int iret = sendto(fd_client, buf, strlen(buf), 0, (struct sockaddr*)&server_addr, sizeof(SA));
+		printf("send : %d \n",iret);
 		bzero(buf, 1024);
 		recvfrom(fd_client, buf, 1024, 0, (struct sockaddr*)&from_addr, &addrlen);
+		printf("h\n");
 		write(1, buf, sizeof(buf));	
 	}
 

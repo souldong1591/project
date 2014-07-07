@@ -87,35 +87,47 @@ int main(int argc, char *argv[])
 					//gets
 					if(strncmp(msg.s_buf, "gets", 4) == 0)
 					{
-						fd_file = open(msg.s_buf + 5, O_RDONLY);
-						while(bzero(&send_msg, sizeof(MSG)), (send_msg.s_len = read(fd_file, send_msg.s_buf, MSG_SIZE)) > 0)
+						char file_name[256];
+						int file_pos = 5;
+						while(bzero(file_name, 256), sscanf(msg.s_buf + file_pos, "%s", file_name) == 1)
 						{
+							file_pos += strlen(file_name) + 1;
+							fd_file = open(file_name, O_RDONLY);
+							while(bzero(&send_msg, sizeof(MSG)), (send_msg.s_len = read(fd_file, send_msg.s_buf, MSG_SIZE)) > 0)
+							{
+								send(fd_client, &send_msg, send_msg.s_len + MSG_LEN, 0);
+							}
+							send_msg.s_len = 0;
 							send(fd_client, &send_msg, send_msg.s_len + MSG_LEN, 0);
+							close(fd_file);
 						}
-						send_msg.s_len = 0;
-						send(fd_client, &send_msg, send_msg.s_len + MSG_LEN, 0);
-						close(fd_file);
 					}    
 					// puts
 					else if(strncmp(msg.s_buf, "puts", 4) == 0)
 					{
 
-						fd_file = open(msg.s_buf + 5, O_WRONLY | O_CREAT, 0666);
-						while(1)
+						char file_name[256];
+						int file_pos = 5;
+						while(bzero(file_name, 256), sscanf(msg.s_buf + file_pos, "%s", file_name) == 1)
 						{
-							bzero(&recv_msg, sizeof(MSG));
-							recv(fd_client, &recv_msg, MSG_LEN, 0);
-							if(recv_msg.s_len > 0)
+							file_pos += strlen(file_name) + 1;
+							fd_file = open(file_name, O_WRONLY | O_CREAT, 0666);
+							while(1)
 							{
-								recv(fd_client, recv_msg.s_buf, recv_msg.s_len, 0);
-								write(fd_file, recv_msg.s_buf, recv_msg.s_len);
-							}
-							else
-							{
-								break;
-							}
+								bzero(&recv_msg, sizeof(MSG));
+								recv(fd_client, &recv_msg, MSG_LEN, 0);
+								if(recv_msg.s_len > 0)
+								{
+									recv(fd_client, recv_msg.s_buf, recv_msg.s_len, 0);
+									write(fd_file, recv_msg.s_buf, recv_msg.s_len);
+								}
+								else
+								{
+									break;
+								}
 						}
 						close(fd_file);
+						}
 					}
 					//ls
 					else if(strncmp(msg.s_buf, "ls", 2) == 0)

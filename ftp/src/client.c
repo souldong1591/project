@@ -52,36 +52,48 @@ int main(int argc, char *argv[])
 		//gets
 		if(strncmp(msg.s_buf, "gets", 4) == 0)
 		{
-			fd_file = open(msg.s_buf + 5, O_WRONLY | O_CREAT, 0666);
-			while(1)
+			char file_name[256];
+			int file_pos = 5;
+			while(bzero(file_name, 256), sscanf(msg.s_buf + file_pos, "%s", file_name) == 1)
 			{
-				bzero(&recv_msg, sizeof(MSG));
-				recv(fd_server, &recv_msg, MSG_LEN, 0);
-				if(recv_msg.s_len > 0)
+				file_pos += strlen(file_name) + 1;
+				fd_file = open(file_name, O_WRONLY | O_CREAT, 0666);
+				while(1)
 				{
-					recv(fd_server, recv_msg.s_buf, recv_msg.s_len, 0);
-					write(fd_file, recv_msg.s_buf, recv_msg.s_len);
+					bzero(&recv_msg, sizeof(MSG));
+					recv(fd_server, &recv_msg, MSG_LEN, 0);
+					if(recv_msg.s_len > 0)
+					{
+						recv(fd_server, recv_msg.s_buf, recv_msg.s_len, 0);
+						write(fd_file, recv_msg.s_buf, recv_msg.s_len);
+					}
+					else
+					{
+						printf("file >> [%s] download done!\n", msg.s_buf + 5);
+						break;
+					}
 				}
-				else
-				{
-					printf("file >> [%s] download done!\n", msg.s_buf + 5);
-					break;
-				}
+				close(fd_file);
 			}
-			close(fd_file);
 		}
 		//puts
 		else if(strncmp(msg.s_buf, "puts", 4) == 0)
 		{
-			fd_file = open(msg.s_buf + 5, O_RDONLY);
-			while(bzero(&send_msg, sizeof(MSG)), (send_msg.s_len = read(fd_file, send_msg.s_buf, MSG_SIZE)) > 0)
+			char file_name[256];
+			int file_pos = 5;
+			while(bzero(file_name, 256), sscanf(msg.s_buf + file_pos, "%s", file_name) == 1)
 			{
+				file_pos += strlen(file_name) + 1;
+				fd_file = open(file_name, O_RDONLY);
+				while(bzero(&send_msg, sizeof(MSG)), (send_msg.s_len = read(fd_file, send_msg.s_buf, MSG_SIZE)) > 0)
+				{
+					send(fd_server, &send_msg, send_msg.s_len + MSG_LEN, 0);
+				}
+				send_msg.s_len = 0;
 				send(fd_server, &send_msg, send_msg.s_len + MSG_LEN, 0);
+				printf("file >> [%s] upload done!\n", msg.s_buf + 5);
+				close(fd_file);
 			}
-			send_msg.s_len = 0;
-			send(fd_server, &send_msg, send_msg.s_len + MSG_LEN, 0);
-			printf("file >> [%s] upload done!\n", msg.s_buf + 5);
-			close(fd_file);
 		}    
 		//ls   cd  remove wrong
 		else 
