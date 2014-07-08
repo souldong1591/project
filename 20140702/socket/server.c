@@ -12,7 +12,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
-#define IP "192.168.1.106"
+#define IP "127.0.0.1"
 #define PORT 8888
 int main()
 {
