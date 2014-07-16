@@ -15,8 +15,15 @@ int main(int argc, const char *argv[])
 {
 	vector<int> vec;
 	cout << "size: " << vec.size() << " capacity:" << vec.capacity() << endl;
+	vec.reserve(10);
 	vec.insert(vec.begin(), 24, 10);
 	cout << "size: " << vec.size() << " capacity:" << vec.capacity() << endl;
+	vec.push_back(10);
+	cout << "size: " << vec.size() << " capacity:" << vec.capacity() << endl;
+
+	vec.resize(10);
+	cout << "size: " << vec.size() << " capacity:" << vec.capacity() << endl;
+
 	vec.reserve(50);
 	cout << "size: " << vec.size() << " capacity:" << vec.capacity() << endl;
 	while(vec.size() != vec.capacity())
