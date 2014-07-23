@@ -5,10 +5,10 @@
 
 class Buffer;
 
-class ComsumeThread : public Thread
+class ConsumeThread : public Thread
 {
 	public:
-		ComsumeThread(Buffer &buffer);
+		ConsumeThread(Buffer &buffer);
 		void run();
 	private:
 		Buffer &buffer_;
