@@ -10,8 +10,9 @@
 #include <string.h>
 #include <stddef.h>
 
+/*
 //暴力移位
-void leftShift1(char *arr, int n)
+void leftShift(char *arr, int n)
 {
 	size_t tmpLen = strlen(arr);
 	char tmpChar;
@@ -42,9 +43,10 @@ void leftShift1(char *arr, int n)
 		}
 	}
 }
+*/
 
 //指针移位
-void leftShift2(char *arr, int n)
+void leftShift(char *arr, int n)
 {
 	int i;
 	size_t tmpLen = strlen(arr);
@@ -72,12 +74,6 @@ void leftShift2(char *arr, int n)
 		p1++;
 	}
 }
-
-
-
-
-
-
 
 
 int main(int argc, const char *argv[])
