@@ -30,7 +30,7 @@ FooThread::FooThread()
 
 void FooThread::print()
 {
-    cout << "Hello World" << endl;
+    cout << "$90000000" << endl;
 }
 
 void FooThread::startTimerThread()
